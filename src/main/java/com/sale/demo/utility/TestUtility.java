@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+
 import com.sale.demo.response.SalesData;
 
 public class TestUtility {
@@ -22,8 +26,10 @@ public class TestUtility {
 	public static List<SalesData> getDataFromCSV() {
 
 		List<SalesData> salesData = new ArrayList<>();
+		
+ 
 		Path pathToFile = Paths
-				.get("C:\\Users\\bhumeshwar.lale\\Downloads\\demo\\demo\\src\\main\\resources\\data.txt");
+				.get("./src/main/resources/data.txt");
 		try (BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII)) {
 			String line = br.readLine();
 			line = br.readLine();
