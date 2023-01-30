@@ -11,18 +11,29 @@ public class SalesData {
 	private String CustomerType;	
 	private String gender;	
 	private String productLine;	
-	private String unitPrice;	
-	private String quantity;	
-	private String tax5;	
+	private Double unitPrice;	
+	private Integer quantity;	
+	private Double tax5;	
 	private Double total;	
 	private Date date;	
 	private String time;	
-	private String paymentCogs;	
-	private String grossMmargin ;	
-	private String grossIncome ;	
-	private String Rating ;
+	private String payment;	
+	private Double cogs;	
+	private Double grossMmargin ;	
+	private Double grossIncome ;	
+	private Double Rating ;
 	
 	
+	public String getPayment() {
+		return payment;
+	}
+
+
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+
+
 	public String getInvoiceID() {
 		return invoiceID;
 	}
@@ -83,35 +94,7 @@ public class SalesData {
 	}
 
 
-	public String getUnitPrice() {
-		return unitPrice;
-	}
-
-
-	public void setUnitPrice(String unitPrice) {
-		this.unitPrice = unitPrice;
-	}
-
-
-	public String getQuantity() {
-		return quantity;
-	}
-
-
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-
-
-	public String getTax5() {
-		return tax5;
-	}
-
-
-	public void setTax5(String tax5) {
-		this.tax5 = tax5;
-	}
-
+	 
 
 	public Double getTotal() {
 		return total;
@@ -142,51 +125,92 @@ public class SalesData {
 		this.time = time;
 	}
 
+ 
 
-	public String getPaymentCogs() {
-		return paymentCogs;
+	public Double getUnitPrice() {
+		return unitPrice;
 	}
 
 
-	public void setPaymentCogs(String paymentCogs) {
-		this.paymentCogs = paymentCogs;
+	public void setUnitPrice(Double unitPrice) {
+		this.unitPrice = unitPrice;
 	}
 
 
-	public String getGrossMmargin() {
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+
+	public Double getTax5() {
+		return tax5;
+	}
+
+
+	public void setTax5(Double tax5) {
+		this.tax5 = tax5;
+	}
+
+
+	public Double getCogs() {
+		return cogs;
+	}
+
+
+	public void setCogs(Double cogs) {
+		this.cogs = cogs;
+	}
+
+
+	public Double getGrossMmargin() {
 		return grossMmargin;
 	}
 
 
-	public void setGrossMmargin(String grossMmargin) {
+	public void setGrossMmargin(Double grossMmargin) {
 		this.grossMmargin = grossMmargin;
 	}
 
 
-	public String getGrossIncome() {
+	public Double getGrossIncome() {
 		return grossIncome;
 	}
 
 
-	public void setGrossIncome(String grossIncome) {
+	public void setGrossIncome(Double grossIncome) {
 		this.grossIncome = grossIncome;
 	}
 
 
-	public String getRating() {
+	public Double getRating() {
 		return Rating;
 	}
 
 
-	public void setRating(String rating) {
+	public void setRating(Double rating) {
 		Rating = rating;
 	}
 
 
 	@Override
+	public String toString() {
+		return "SalesData [invoiceID=" + invoiceID + ", branch=" + branch + ", City=" + City + ", CustomerType="
+				+ CustomerType + ", gender=" + gender + ", productLine=" + productLine + ", unitPrice=" + unitPrice
+				+ ", quantity=" + quantity + ", tax5=" + tax5 + ", total=" + total + ", date=" + date + ", time=" + time
+				+ ", payment=" + payment + ", cogs=" + cogs + ", grossMmargin=" + grossMmargin + ", grossIncome="
+				+ grossIncome + ", Rating=" + Rating + "]";
+	}
+
+
+	@Override
 	public int hashCode() {
-		return Objects.hash(City, CustomerType, Rating, branch, date, gender, grossIncome, grossMmargin, invoiceID,
-				paymentCogs, productLine, quantity, tax5, time, total, unitPrice);
+		return Objects.hash(City, CustomerType, Rating, branch, cogs, date, gender, grossIncome, grossMmargin,
+				invoiceID, payment, productLine, quantity, tax5, time, total, unitPrice);
 	}
 
 
@@ -201,22 +225,15 @@ public class SalesData {
 		SalesData other = (SalesData) obj;
 		return Objects.equals(City, other.City) && Objects.equals(CustomerType, other.CustomerType)
 				&& Objects.equals(Rating, other.Rating) && Objects.equals(branch, other.branch)
-				&& Objects.equals(date, other.date) && Objects.equals(gender, other.gender)
-				&& Objects.equals(grossIncome, other.grossIncome) && Objects.equals(grossMmargin, other.grossMmargin)
-				&& Objects.equals(invoiceID, other.invoiceID) && Objects.equals(paymentCogs, other.paymentCogs)
-				&& Objects.equals(productLine, other.productLine) && Objects.equals(quantity, other.quantity)
-				&& Objects.equals(tax5, other.tax5) && Objects.equals(time, other.time)
-				&& Objects.equals(total, other.total) && Objects.equals(unitPrice, other.unitPrice);
+				&& Objects.equals(cogs, other.cogs) && Objects.equals(date, other.date)
+				&& Objects.equals(gender, other.gender) && Objects.equals(grossIncome, other.grossIncome)
+				&& Objects.equals(grossMmargin, other.grossMmargin) && Objects.equals(invoiceID, other.invoiceID)
+				&& Objects.equals(payment, other.payment) && Objects.equals(productLine, other.productLine)
+				&& Objects.equals(quantity, other.quantity) && Objects.equals(tax5, other.tax5)
+				&& Objects.equals(time, other.time) && Objects.equals(total, other.total)
+				&& Objects.equals(unitPrice, other.unitPrice);
 	}
 
-
-	@Override
-	public String toString() {
-		return "SalesData [branch=" + branch + ", City=" + City + ", CustomerType=" + CustomerType + ", date=" + date
-				+ ", gender=" + gender + ", grossIncome=" + grossIncome + ", grossMmargin=" + grossMmargin
-				+ ", invoiceID=" + invoiceID + ", paymentCogs=" + paymentCogs + ", productLine=" + productLine
-				+ ", quantity=" + quantity + ", Rating=" + Rating + ", tax5=" + tax5 + ", time=" + time + ", total="
-				+ total + ", unitPrice=" + unitPrice + "]";
-	}
+ 
 	 
 }

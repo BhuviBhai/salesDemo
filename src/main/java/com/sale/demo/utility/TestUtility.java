@@ -9,12 +9,7 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 
 import com.sale.demo.response.SalesData;
 
@@ -36,24 +31,24 @@ public class TestUtility {
 			while (line != null) {
 				String[] attributes = line.split(",");
 				SalesData data = new SalesData();
-//				System.out.println(attributes[0]);
-//				System.out.println(attributes[1]);
-//				System.out.println(attributes[2]);
-//				System.out.println(attributes[3]);
-//				System.out.println(attributes[4]);
-//				System.out.println(attributes[5]);
-//				System.out.println(attributes[6]);
-//				System.out.println(attributes[7]);
-//				System.out.println(attributes[8]);
-//				System.out.println(attributes[9]);
+ 
 				data.setInvoiceID(attributes[0]);
 				data.setBranch(attributes[1]);
 				data.setCity(attributes[2]);
 				data.setCustomerType(attributes[3]);
+				data.setGender(attributes[4]);
 				data.setProductLine(attributes[5]);
+				data.setUnitPrice(Double.parseDouble(attributes[6]));
+				data.setQuantity(Integer.parseInt(attributes[7]));
+				data.setTax5(Double.parseDouble(attributes[8]));
 				data.setTotal(Double.parseDouble(attributes[9]));
 				data.setDate(DateFor.parse(attributes[10]));
-
+				data.setTime(attributes[11]);
+				data.setPayment(attributes[12]);
+				data.setCogs(Double.parseDouble(attributes[13]));
+				data.setGrossIncome(Double.parseDouble(attributes[14]));
+				data.setGrossMmargin(Double.parseDouble(attributes[15]));
+				data.setRating(Double.parseDouble(attributes[16]));
 				salesData.add(data);
 				line = br.readLine();
 			}
